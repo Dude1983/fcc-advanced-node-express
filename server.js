@@ -6,16 +6,15 @@ const fccTesting  = require('./freeCodeCamp/fcctesting.js');
 
 const app = express();
 
-app.set('view-engine', 'pug');
-
 fccTesting(app); //For FCC testing purposes
+app.set('view-engine', 'pug');
 app.use('/public', express.static(process.cwd() + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.route('/')
   .get((req, res) => {
-    res.render(process.cwd() + '/views/pug/index.pug');
+    res.render(process.cwd() + '/views/pug/index.pug', {title: 'Hello', message: 'Please login'});
   });
 const port = process.env.PORT || 3000;
 
