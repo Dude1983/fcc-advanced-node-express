@@ -5,6 +5,7 @@ const bodyParser  = require('body-parser');
 const fccTesting  = require('./freeCodeCamp/fcctesting.js');
 const session = require('express-session');
 const passport = require('passport');
+require('dotenv').config()
 
 const app = express();
 
@@ -29,6 +30,6 @@ app.route('/')
   });
 const port = process.env.PORT || 3000;
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("Listening on port " + port);
 });
